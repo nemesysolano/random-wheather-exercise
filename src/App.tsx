@@ -21,7 +21,6 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import { getOrders } from './OrdersService';
 import { Section } from './Section';
 import { WeatherServiceResponse } from './types';
 import { fetchRandomLocation } from './WeatherService';
@@ -35,8 +34,7 @@ const App = () => {
   };
 
   const refreshResport = async () => {   
-    const weatherServiceResponse = await fetchRandomLocation();
-    const serviceOrderResponse = await getOrders();
+    const weatherServiceResponse = await fetchRandomLocation();    
 
     setWeatherServiceResponse(weatherServiceResponse);
 

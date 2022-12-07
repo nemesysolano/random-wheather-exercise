@@ -17,7 +17,7 @@ const randomInt = (min:number, max:number): number => {
 export  const fetchRandomLocation =  async() => {
     const index = randomInt(0, countries.length-1);
     const country = countries[index];    
-    const city = encodeURIComponent(country[1]);
+    const city = encodeURIComponent(country.capital);
     const request = REQUEST_TEMPLATE.replace(":CITY", city);
     const response = await axios.post<WeatherServiceResponse>(WEATHER_SERVICE_URL, request);    
     const data = response.data;
