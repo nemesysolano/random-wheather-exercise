@@ -1,20 +1,20 @@
 import axios from "axios";
-import { countries } from "./Countries"; //This is an array of
+import { countries } from "./Countries";
 import { WeatherServiceResponse } from "./types";
+const WEATHER_SERVICE_URL = "http://localhost:3000/weather";
 
-//TODO: Store these constants in environment module
-
-const API_KEY = "e8a1d606625a48088bb235114222906";
-const REQUEST_TEMPLATE = `key=${API_KEY}&q=:CITY&aqi=no`;
-const WEATHER_SERVICE_URL = "https://api.weatherapi.com/v1/current.json";
+const randomInt = (min:number, max:number): number => {
+    
+    let result = 0; //TODO: Generate a non-negative integer between min and max and assigned to result.
+    return (result as number);
+}
 
 export  const fetchRandomLocation =  async() => {
-    const index = /* generate random number between 0 and countries.length - 1 */
+    const index = randomInt(0, countries.length-1);
     const country = countries[index];    
-    const city = /* encode country.capital for url */
-    const request = /* replace :CITY place holder in REQUEST_TEMPLATE with city (defined in previous line) */
-    const response = /* Use axios post to send the request created in the previous line*/
+    const city = //TODO: Encode country.capital such that we can include in the URL below.;
+    const response = await axios.get<WeatherServiceResponse>(`${WEATHER_SERVICE_URL}/${city}`);    
     const data = response.data;
-    data.current.condition.icon = 'https:' + data.current.condition.icon;
+    data.current.condition.icon =  data.current.condition.icon;
     return data;
 }
