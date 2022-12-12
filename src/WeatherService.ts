@@ -12,7 +12,7 @@ const randomInt = (min:number, max:number): number => {
 export  const fetchRandomLocation =  async() => {
     const index = randomInt(0, countries.length-1);
     const country = countries[index];    
-    const city = //TODO: Encode country.capital such that we can include in the URL below.;
+    const city = //TODO: Encode country.capital such that we can include it in the URL below.;
     const response = await axios.get<WeatherServiceResponse>(`${WEATHER_SERVICE_URL}/${city}`);    
     const data = response.data;
     data.current.condition.icon =  data.current.condition.icon;
